@@ -8,7 +8,8 @@ import org.apache.thrift.transport.TServerTransport;
 public class PersonServiceServer {
     public static void main(String[] args) {
         try {
-            PersonServiceHandler handler = new PersonServiceHandler();
+            PersonDAO personDAO = new PersonDAO();
+            PersonServiceHandler handler = new PersonServiceHandler(personDAO);
             PersonService.Processor<PersonServiceHandler> processor = new PersonService.Processor<>(handler);
 
             TServerTransport serverTransport = new TServerSocket(9090);

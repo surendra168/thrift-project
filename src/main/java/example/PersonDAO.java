@@ -5,9 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDAO {
+//
+//    private DBUtil dbUtil;
+//
+//    public PersonDAO(DBUtil ds) {
+//        this.dbUtil = ds;
+//    }
+
+//    public Connection gst() throws SQLException {
+//        return DBUtil.getConnection();
+//    }
 
     public void createPerson(Person person) {
         String query = "INSERT INTO persons (id, name, age) VALUES (?, ?, ?)";
+//        PersonDAO personDAO = new PersonDAO();
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, person.id);

@@ -4,7 +4,11 @@ import org.apache.thrift.TException;
 import java.util.List;
 
 public class PersonServiceHandler implements PersonService.Iface {
-    private final PersonDAO personDAO = new PersonDAO();
+    private final PersonDAO personDAO;
+
+    public PersonServiceHandler(PersonDAO personDAO) {
+        this.personDAO = personDAO;
+    }
 
     @Override
     public void createPerson(Person person) throws TException {
